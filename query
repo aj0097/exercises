@@ -1,0 +1,10 @@
+/*Scrivi una query che estragga il numero di persone con meno di 30 anni che
+guadagnano più di 50.000 dollari l'anno
+*/
+select count(*) from records where over_50k=TRUE and age<30;
+
+/*
+2) Scrivi una query che riporti il guadagno di capitale medio per ogni categoria
+lavorativa
+*/
+select count(*) as numberOfPeople,w.name as name, avg((r.capital_gain-r.capital_loss)) as avg from records r left join workclasses w on r.workclass_id=w.id group by w.name;
